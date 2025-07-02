@@ -1,26 +1,4 @@
-<!--<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Parallel Testing" parallel="classes" thread-count="8">
-    <test name="Calculator Testing">
-        <classes>
-            <class name="com.epam.tat.module4.calculator.CosTest"></class>
-            <class name="com.epam.tat.module4.calculator.CtgTest"></class>
-            <class name="com.epam.tat.module4.calculator.DivTest"></class>
-            <class name="com.epam.tat.module4.calculator.IsNegativeTest"></class>
-            <class name="com.epam.tat.module4.calculator.IsPositiveTest"></class>
-            <class name="com.epam.tat.module4.calculator.MultTest"></class>
-            <class name="com.epam.tat.module4.calculator.PowTest"></class>
-            <class name="com.epam.tat.module4.calculator.SinTest"></class>
-            <class name="com.epam.tat.module4.calculator.SqrtTest"></class>
-            <class name="com.epam.tat.module4.calculator.SubTest"></class>
-            <class name="com.epam.tat.module4.calculator.SumTest"></class>
-            <class name="com.epam.tat.module4.calculator.TgTest"></class>
-        </classes>
-    </test>
-</suite>-->
-
-
-<suite name="Parallel Testing" parallel="classes" thread-count="8">
+<suite name="Parallel Testing" parallel="classes" thread-count="12">
     <test name="Calculator Testing">
         <packages>
             <package name="com.epam.tat.module4.calculator"/>
