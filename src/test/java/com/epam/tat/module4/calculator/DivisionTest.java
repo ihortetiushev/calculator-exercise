@@ -5,11 +5,24 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class DivTest {
+public class DivisionTest {
+    @DataProvider(name = "divLongData")
+    public static Object[][] provideLongDivData() {
+        Calculator calculator = new Calculator();
+        return new Object[][]{
+                {calculator, 10L, 2L, 5L},
+                {calculator, 8L, 4L, 2L},
+                {calculator, -10L, 2L, -5L},
+                {calculator, -10L, -2L, 5L},
+                {calculator, 0L, 5L, 0L},
+                {calculator, Long.MAX_VALUE, 1L, Long.MAX_VALUE}
+        };
+    }
+
     @DataProvider(name = "divDoubleData")
     public Object[][] provideDoubleDivData() {
         Calculator calculator = new Calculator();
-        return new Object[][] {
+        return new Object[][]{
                 {calculator, 10.0, 2.0, 5.0},
                 {calculator, 9.0, 4.0, 2.25},
                 {calculator, -10.0, 2.0, -5.0},
@@ -21,23 +34,12 @@ public class DivTest {
         };
     }
 
-    @DataProvider(name = "divLongData")
-    public static Object[][] provideLongDivData() {
-        Calculator calculator = new Calculator();
-        return new Object[][] {
-                {calculator, 10L, 2L, 5L},
-                {calculator, 9L, 4L, 2L},
-                {calculator, -10L, 2L, -5L},
-                {calculator, -10L, -2L, 5L},
-                {calculator, 0L, 5L, 0L},
-                {calculator, Long.MAX_VALUE, 1L, Long.MAX_VALUE}
-        };
-    }
     @Test(dataProvider = "divDoubleData")
     public void divDoubleTest(Calculator calculator, double a, double b, double expected) {
         double result = calculator.div(a, b);
         Assert.assertEquals(result, expected, "Test div function with double type");
     }
+
     @Test(dataProvider = "divLongData")
     public void divLongTest(Calculator calculator, long a, long b, long expected) {
         long result = calculator.div(a, b);
