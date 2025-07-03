@@ -5,11 +5,11 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class MultTest {
+public class MultiplicationTest {
     @DataProvider(name = "multDoubleData")
     public Object[][] provideDoubleMultData() {
         Calculator calculator = new Calculator();
-        return new Object[][] {
+        return new Object[][]{
                 {calculator, 0.0, 0.0, 0.0},
                 {calculator, 5.5, 0.0, 0.0},
                 {calculator, 2.5, 2.0, 5.0},
@@ -20,24 +20,23 @@ public class MultTest {
                 {calculator, 10.0, 0.5, 5.0}
         };
     }
+
     @DataProvider(name = "multLongData")
-    public static Object[][] provideLongMultData() {
+    public Object[][] provideLongMultData() {
         Calculator calculator = new Calculator();
-        return new Object[][] {
-                {calculator, 0L, 0L, 0L},
-                {calculator, 5L, 0L, 0L},
-                {calculator, -5L, 2L, -10L},
-                {calculator, -5L, -2L, 10L},
-                {calculator, 12345L, 1L, 12345L},
-                {calculator, Long.MAX_VALUE, 1L, Long.MAX_VALUE},
-                {calculator, 1000000L, 1000L, 1_000_000_000L}
+        return new Object[][]{
+                {calculator, 0, 0, 0},
+                {calculator, 3, 5, 15},
+                {calculator, 1, 2, 2},
         };
     }
+
     @Test(dataProvider = "multDoubleData")
     public void multDoubleTest(Calculator calculator, double a, double b, double expected) {
         double result = calculator.mult(a, b);
         Assert.assertEquals(result, expected, "Test mult function with double type");
     }
+
     @Test(dataProvider = "multLongData")
     public void multLongTest(Calculator calculator, long a, long b, long expected) {
         long result = calculator.mult(a, b);

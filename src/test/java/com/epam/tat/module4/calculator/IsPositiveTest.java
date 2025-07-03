@@ -9,7 +9,7 @@ public class IsPositiveTest {
     @DataProvider(name = "isPositiveData")
     public static Object[][] providePositiveData() {
         Calculator calculator = new Calculator();
-        return new Object[][] {
+        return new Object[][]{
                 {calculator, 1, true},
                 {calculator, 0, false},
                 {calculator, Long.MAX_VALUE, true},
@@ -17,6 +17,7 @@ public class IsPositiveTest {
                 {calculator, -1, false}
         };
     }
+
     @Test(dataProvider = "isPositiveData")
     public void isPositiveTest(Calculator calculator, long a, boolean expected) {
         boolean result = calculator.isPositive(a);
