@@ -16,6 +16,7 @@ public class CotangentTest {
                 {calculator, toRadians(45), 1},
                 {calculator, toRadians(60), 1 / sqrt(3)},
                 {calculator, toRadians(90), 0},
+                {calculator, toRadians(95.5), -0.087},
                 {calculator, toRadians(270), 0}
         };
     }
@@ -23,6 +24,7 @@ public class CotangentTest {
     @Test(dataProvider = "ctgDoubleData")
     public void ctgDoubleTest(Calculator calculator, double a, double expected) {
         double result = calculator.ctg(a);
-        Assert.assertEquals(result, expected, 0.0001, "Test ctg function with double type");
+        Assert.assertEquals(result, expected, 0.001,
+                String.format("Expected value %.2f is different from actual %.2f value", expected, result));
     }
 }

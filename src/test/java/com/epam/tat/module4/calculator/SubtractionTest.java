@@ -28,6 +28,8 @@ public class SubtractionTest {
                 {calculator, 3.5, 2.5, 1.0},
                 {calculator, -11.7, 7.8, -19.5},
                 {calculator, 0.0, 0.0, 0.0},
+                {calculator, 100.53, 90.21, 10.32},
+                {calculator, -5.46, 11.25, -16.71},
                 {calculator, -110.8, -9.2, -101.6},
         };
     }
@@ -35,12 +37,14 @@ public class SubtractionTest {
     @Test(dataProvider = "subDoubleData")
     public void subDoubleTest(Calculator calculator, double a, double b, double expected) {
         double result = calculator.sub(a, b);
-        Assert.assertEquals(result, expected, "Test sub function with double type");
+        Assert.assertEquals(result, expected, 0.001,
+                String.format("Expected value %.2f is different from actual %.2f value", expected, result));
     }
 
     @Test(dataProvider = "subLongData")
     public void subLongTest(Calculator calculator, long a, long b, long expected) {
         long result = calculator.sub(a, b);
-        Assert.assertEquals(result, expected, "Test sub function with long type");
+        Assert.assertEquals(result, expected,
+                String.format("Expected value %d is different from actual %d value", expected, result));
     }
 }

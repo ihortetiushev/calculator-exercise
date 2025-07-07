@@ -14,6 +14,8 @@ public class IsNegativeTest {
                 {calculator, 0, false},
                 {calculator, Long.MAX_VALUE, false},
                 {calculator, Long.MIN_VALUE, true},
+                {calculator, -1000000001, true},
+                {calculator, 1000000001, false},
                 {calculator, -1, true}
         };
     }
@@ -21,6 +23,7 @@ public class IsNegativeTest {
     @Test(dataProvider = "isNegativeData")
     public void isNegativeTest(Calculator calculator, long a, boolean expected) {
         boolean result = calculator.isNegative(a);
-        Assert.assertEquals(result, expected, "Test isNegative function with double type");
+        Assert.assertEquals(result, expected,
+                String.format("Expected isNegative %d to be %b but was %b", a, expected, result));
     }
 }

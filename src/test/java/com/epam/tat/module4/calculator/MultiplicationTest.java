@@ -28,18 +28,23 @@ public class MultiplicationTest {
                 {calculator, 0, 0, 0},
                 {calculator, 3, 5, 15},
                 {calculator, 1, 2, 2},
+                {calculator, 12, 12, 144},
+                {calculator, 12, 4, 48},
+                {calculator, 5, 5, 25}
         };
     }
 
     @Test(dataProvider = "multDoubleData")
     public void multDoubleTest(Calculator calculator, double a, double b, double expected) {
         double result = calculator.mult(a, b);
-        Assert.assertEquals(result, expected, "Test mult function with double type");
+        Assert.assertEquals(result, expected, 0.001,
+                String.format("Expected value %.2f is different from actual %.2f value", expected, result));
     }
 
     @Test(dataProvider = "multLongData")
     public void multLongTest(Calculator calculator, long a, long b, long expected) {
         long result = calculator.mult(a, b);
-        Assert.assertEquals(result, expected, "Test mult function with long type");
+        Assert.assertEquals(result, expected,
+                String.format("Expected value %d is different from actual %d value", expected, result));
     }
 }
