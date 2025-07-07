@@ -9,7 +9,7 @@ public class IsNegativeTest {
     @DataProvider(name = "isNegativeData")
     public static Object[][] providePositiveNegativeData() {
         Calculator calculator = new Calculator();
-        return new Object[][] {
+        return new Object[][]{
                 {calculator, 1, false},
                 {calculator, 0, false},
                 {calculator, Long.MAX_VALUE, false},
@@ -17,6 +17,7 @@ public class IsNegativeTest {
                 {calculator, -1, true}
         };
     }
+
     @Test(dataProvider = "isNegativeData")
     public void isNegativeTest(Calculator calculator, long a, boolean expected) {
         boolean result = calculator.isNegative(a);
