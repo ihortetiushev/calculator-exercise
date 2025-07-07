@@ -14,6 +14,8 @@ public class IsPositiveTest {
                 {calculator, 0, false},
                 {calculator, Long.MAX_VALUE, true},
                 {calculator, Long.MIN_VALUE, false},
+                {calculator, 100000000, true},
+                {calculator, -1000000001, false},
                 {calculator, -1, false}
         };
     }
@@ -21,6 +23,7 @@ public class IsPositiveTest {
     @Test(dataProvider = "isPositiveData")
     public void isPositiveTest(Calculator calculator, long a, boolean expected) {
         boolean result = calculator.isPositive(a);
-        Assert.assertEquals(result, expected, "Test isPositive function with double type");
+        Assert.assertEquals(result, expected,
+                String.format("Expected isPositive %d to be %b but was %b", a, expected, result));
     }
 }

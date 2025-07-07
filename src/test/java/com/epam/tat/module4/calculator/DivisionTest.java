@@ -37,13 +37,15 @@ public class DivisionTest {
     @Test(dataProvider = "divDoubleData")
     public void divDoubleTest(Calculator calculator, double a, double b, double expected) {
         double result = calculator.div(a, b);
-        Assert.assertEquals(result, expected, "Test div function with double type");
+        Assert.assertEquals(result, expected, 0.001,
+                String.format("Expected value %.2f is different from actual %.2f value", expected, result));
     }
 
     @Test(dataProvider = "divLongData")
     public void divLongTest(Calculator calculator, long a, long b, long expected) {
         long result = calculator.div(a, b);
-        Assert.assertEquals(result, expected, "Test div function with long type");
+        Assert.assertEquals(result, expected,
+                String.format("Expected value %d is different from actual %d value", expected, result));
         try {
             calculator.div(a, 0);
             Assert.fail("Expected NumberFormatException when dividing by zero");

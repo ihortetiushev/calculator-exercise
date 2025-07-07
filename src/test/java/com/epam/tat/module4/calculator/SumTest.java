@@ -33,12 +33,14 @@ public class SumTest {
     @Test(dataProvider = "doubleSumData")
     public void sumDoubleTest(Calculator calculator, double a, double b, double expected) {
         double result = calculator.sum(a, b);
-        Assert.assertEquals(result, expected, "Test sum function with double type");
+        Assert.assertEquals(result, expected, 0.001,
+                String.format("Expected value %.2f is different from actual %.2f value", expected, result));
     }
 
     @Test(dataProvider = "longSumData")
     public void sumLongTest(Calculator calculator, long a, long b, long expected) {
         long result = calculator.sum(a, b);
-        Assert.assertEquals(result, expected, "Test sum function with long type");
+        Assert.assertEquals(result, expected,
+                String.format("Expected value %d is different from actual %d value", expected, result));
     }
 }

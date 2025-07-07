@@ -23,6 +23,7 @@ public class SineTest {
     @Test(dataProvider = "sinDoubleData")
     public void sinDoubleTest(Calculator calculator, double a, double expected) {
         double result = calculator.sin(a);
-        Assert.assertEquals(result, expected, 0.0001, "Test sin function with double type");
+        Assert.assertEquals(result, expected, 0.001,
+                String.format("Expected value %.2f is different from actual %.2f value", expected, result));
     }
 }

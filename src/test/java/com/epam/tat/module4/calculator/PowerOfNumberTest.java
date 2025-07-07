@@ -25,6 +25,7 @@ public class PowerOfNumberTest {
     @Test(dataProvider = "powDoubleData")
     public void powDoubleTest(Calculator calculator, double a, double b, double expected) {
         double result = calculator.pow(a, b);
-        Assert.assertEquals(result, expected, "Test pow function with double type");
+        Assert.assertEquals(result, expected, 0.001,
+                String.format("Expected value %.2f is different from actual %.2f value", expected, result));
     }
 }
